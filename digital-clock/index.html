@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>डिजिटल घड़ी - मल्टी टाइम जोन</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-clock"></i> डिजिटल घड़ी</h1>
+                <p>दुनिया भर के समय क्षेत्रों को देखें</p>
+            </div>
+        </header>
+
+        <!-- Main Clock Display -->
+        <section class="main-section">
+            <div class="main-clock">
+                <div class="time-display">
+                    <div class="digital-time" id="mainTime">00:00:00</div>
+                    <div class="date-display" id="mainDate">सोमवार, 17 जून 2026</div>
+                    <div class="timezone-info" id="mainTimezone">भारतीय मानक समय (IST)</div>
+                </div>
+                <div class="controls">
+                    <button id="toggleFormat" class="btn btn-toggle">12 घंटे</button>
+                    <button id="toggleSound" class="btn btn-sound">
+                        <i class="fas fa-volume-up"></i> ध्वनि चालू
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timezone Selection -->
+        <section class="timezone-section">
+            <h2>समय क्षेत्र जोड़ें</h2>
+            <div class="timezone-selector">
+                <select id="timezoneSelect" class="timezone-dropdown">
+                    <option value="">-- समय क्षेत्र चुनें --</option>
+                </select>
+                <button id="addTimezone" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> जोड़ें
+                </button>
+            </div>
+        </section>
+
+        <!-- Clock Cards Display -->
+        <section class="clocks-section">
+            <h2>दुनिया के समय</h2>
+            <div id="clocksContainer" class="clocks-grid">
+                <!-- Clock cards will be added here -->
+            </div>
+        </section>
+
+        <!-- Analog Clock Section -->
+        <section class="analog-section">
+            <h2>एनालॉग घड़ी</h2>
+            <div class="analog-clocks-grid">
+                <div class="analog-container">
+                    <canvas id="analogClock" width="300" height="300"></canvas>
+                    <div class="analog-label" id="analogLabel">भारतीय समय</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings -->
+        <section class="settings-section">
+            <h2><i class="fas fa-cog"></i> सेटिंग्स</h2>
+            <div class="settings-grid">
+                <div class="setting-item">
+                    <label>
+                        <input type="checkbox" id="show24Hour" checked>
+                        24 घंटे का प्रारूप
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <label>
+                        <input type="checkbox" id="showSeconds" checked>
+                        सेकंड दिखाएं
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <label>
+                        <input type="checkbox" id="showAnalog" checked>
+                        एनालॉग घड़ी दिखाएं
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <label>
+                        <input type="checkbox" id="darkMode">
+                        डार्क मोड
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alarms -->
+        <section class="alarms-section">
+            <h2><i class="fas fa-bell"></i> अलर्ट सेट करें</h2>
+            <div class="alarm-input">
+                <input type="time" id="alarmTime" class="input-field">
+                <input type="text" id="alarmLabel" class="input-field" placeholder="अलर्ट का नाम (वैकल्पिक)">
+                <button id="setAlarm" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> अलर्ट सेट करें
+                </button>
+            </div>
+            <div id="alarmsList" class="alarms-list"></div>
+        </section>
+    </div>
+
+    <!-- Audio element for alarm -->
+    <audio id="alarmSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAAA=" type="audio/wav">
+    </audio>
+
+    <script src="app.js"></script>
+</body>
+</html>
