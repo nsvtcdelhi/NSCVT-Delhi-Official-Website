@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSCVT दिल्ली - छात्र पोर्टल</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">NSCVT दिल्ली</div>
+        <nav>
+            <ul>
+                <li><a href="#home">होम</a></li>
+                <li><a href="#courses">कोर्स</a></li>
+                <li><a href="#register">पंजीकरण</a></li>
+                <li><a href="#verify">सत्यापन</a></li>
+                <li><a href="#students">छात्र डेटा</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container">
+        <!-- होम सेक्शन -->
+        <section id="home" class="section">
+            <h1>NSCVT दिल्ली - वोकेशनल शिक्षा पोर्टल</h1>
+            <p>स्वागत है! यह पोर्टल वोकेशनल कोर्स की जानकारी और छात्र पंजीकरण के लिए है।</p>
+        </section>
+
+        <!-- कोर्स सेक्शन -->
+        <section id="courses" class="section">
+            <h2>वोकेशनल कोर्स</h2>
+            <div id="coursesList" class="courses-container"></div>
+        </section>
+
+        <!-- पंजीकरण फॉर्म -->
+        <section id="register" class="section">
+            <h2>छात्र पंजीकरण</h2>
+            <form id="registrationForm" class="form">
+                <div class="form-group">
+                    <label for="fullName">पूरा नाम:</label>
+                    <input type="text" id="fullName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">ईमेल:</label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">फोन नंबर:</label>
+                    <input type="tel" id="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="dob">जन्म तारीख:</label>
+                    <input type="date" id="dob" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">पता:</label>
+                    <textarea id="address" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="course">कोर्स चुनें:</label>
+                    <select id="course" required>
+                        <option value="">-- कोर्स चुनें --</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="qualification">शैक्षणिक योग्यता:</label>
+                    <input type="text" id="qualification" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="aadhar">आधार नंबर:</label>
+                    <input type="text" id="aadhar" placeholder="12 अंकों में" required>
+                </div>
+
+                <button type="submit" class="btn">पंजीकृत करें</button>
+            </form>
+        </section>
+
+        <!-- सत्यापन सेक्शन -->
+        <section id="verify" class="section">
+            <h2>छात्र डेटा सत्यापन</h2>
+            <div class="verify-section">
+                <input type="text" id="searchAadhar" placeholder="आधार नंबर से खोजें">
+                <button onclick="verifyStudent()" class="btn">खोजें</button>
+            </div>
+            <div id="verifyResult" class="verify-result"></div>
+        </section>
+
+        <!-- छात्र डेटा सेक्शन -->
+        <section id="students" class="section">
+            <h2>सभी पंजीकृत छात्र</h2>
+            <button onclick="exportToCSV()" class="btn">CSV में डाउनलोड करें</button>
+            <div id="studentsList" class="students-table"></div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 NSCVT दिल्ली - सभी अधिकार सुरक्षित</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
